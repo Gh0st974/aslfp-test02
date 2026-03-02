@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galerie Photos — AS du LFP</title>
+  <link rel="icon" type="image/png" href="img/Logos/logo-aslfp.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/styles.css">
+  <link rel="stylesheet" href="CSS/galerie.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header header-scrolled">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo-section">
+        <a href="index.html" class="logo-link">
+          <img src="img/Logos/logo-aslfp.png" alt="Logo AS LFP" class="logo">
+        </a>
+        <span class="as-title">ASSOCIATION SPORTIVE DU LFP</span>
+      </div>
+
+      <nav class="main-nav desktop-nav">
+        <ul>
+          <li><a href="index.html#hero">Accueil</a></li>
+          <li><a href="index.html#activites">Activités</a></li>
+          <li><a href="index.html#calendrier">Calendrier</a></li>
+          <li><a href="index.html#inscription">Inscription</a></li>
+          <li><a href="galerie.html" class="active">Galerie </a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="articles.html" class="active">Articles</a></li>
+        </ul>
+      </nav>
+
+      <button class="burger" aria-label="Ouvrir le menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-nav mobile-nav">
+        <ul>
+          <li><a href="index.html#hero">Accueil</a></li>
+          <li><a href="index.html#activites">Activités</a></li>
+          <li><a href="index.html#calendrier">Calendrier</a></li>
+          <li><a href="index.html#inscription">Inscription</a></li>
+          <li><a href="galerie.html" class="active">Galerie 📸</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- CONTENU GALERIE -->
+<main class="galerie-page">
+  <div class="container">
+    <h1 class="section-title">Galerie Photos 📸</h1>
+    <div class="underline"></div>
+    <p class="galerie-intro">Retrouvez les meilleurs moments de nos activités et événements !</p>
+
+    <!-- Filtres (générés automatiquement par JS) -->
+    <div class="galerie-filters" id="galerie-filters"></div>
+
+    <!-- Grille photos (générée automatiquement par JS) -->
+    <div class="galerie-grid" id="galerie-grid">
+      <div class="galerie-loading">
+        <p>⏳ Chargement des photos...</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">✕</button>
+  <button class="lightbox-nav lightbox-prev" id="lightbox-prev">❮</button>
+  <button class="lightbox-nav lightbox-next" id="lightbox-next">❯</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+
+          <div class="logo-section">
+            <img src="img/Logos/logo-aslfp.png" alt="Logo AS LFP" class="logo">
+            <span class="as-title">AS du LFP</span>
+          </div>
+
+          <nav class="footer-nav">
+            <a href="#hero">Accueil</a>
+            <a href="#activites">Activités</a>
+            <a href="#calendrier">Calendrier</a>
+            <a href="#inscription">Inscription</a>
+            <a href="galerie.html">Galerie</a>
+            <a href="#contact">Contact</a>
+          </nav>
+
+        <div class="social-links">
+          <a target="_blank" href="#" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a target="_blank" href="https://cz.linkedin.com/school/lyc%C3%A9e-fran%C3%A7ais-de-prague/" title="Linkedin">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a target="_blank" href="https://www.facebook.com/lyceefrancaisprague/#" title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+        </div>
+
+
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2025 Association Sportive du LFP — Tous droits réservés</p>
+          <p><a href="mentions-legales.html">Mentions légales</a></p>
+          <p style="margin-top:4px;">Fait avec ❤️ </p>
+        </div>
+      </div>
+    </footer>
+
+<script src="JS/galerie.js"></script>
+</body>
+</html>
+
+
+

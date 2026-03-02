@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Articles | ASLFP</title>
+
+  <!-- CSS principal du site -->
+  <link rel="stylesheet" href="CSS/styles.css" />
+  <!-- CSS spécifique au blog -->
+  <link rel="stylesheet" href="CSS/blog.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+</head>
+<body class="blog-page">
+
+<!-- HEADER -->
+<header class="header header-scrolled">
+  <div class="container">
+    <div class="header-content">
+
+      <div class="logo-section">
+        <a href="index.html" class="logo-link">
+          <img src="img/Logos/logo-aslfp.png" alt="Logo AS LFP" class="logo">
+        </a>
+        <span class="as-title">ASSOCIATION SPORTIVE DU LFP</span>
+      </div>
+
+      <nav class="main-nav desktop-nav">
+        <ul>
+          <li><a href="index.html#hero">Accueil</a></li>
+          <li><a href="index.html#activites">Activités</a></li>
+          <li><a href="index.html#calendrier">Calendrier</a></li>
+          <li><a href="index.html#inscription">Inscription</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="articles.html" class="active">Articles</a></li>
+        </ul>
+      </nav>
+
+      <button class="burger" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav mobile-nav">
+        <ul>
+          <li><a href="index.html#hero">Accueil</a></li>
+          <li><a href="index.html#activites">Activités</a></li>
+          <li><a href="index.html#calendrier">Calendrier</a></li>
+          <li><a href="index.html#inscription">Inscription</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="articles.html" class="active">Articles</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </div>
+</header>
+
+
+  <!-- ===================== HERO SECTION ===================== -->
+  <section class="blog-hero">
+    <div class="blog-hero__overlay"></div>
+    <div class="blog-hero__content">
+      <span class="blog-hero__label">Notre Blog</span>
+      <h1 class="blog-hero__title">Articles & Conseils</h1>
+      <p class="blog-hero__subtitle">
+        Nutrition, entraînement, compétition — tout ce qu'il faut savoir pour progresser.
+      </p>
+    </div>
+    <!-- Vague décorative en bas -->
+    <div class="blog-hero__wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#0f0f0f"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===================== FILTRES ===================== -->
+  <section class="blog-filters-section">
+    <div class="container">
+      <div class="blog-filters" id="blogFilters">
+        <button class="filter-btn active" data-filter="all">
+          <i class="fas fa-border-all"></i> Tous
+        </button>
+        <button class="filter-btn" data-filter="nutrition">
+          <i class="fas fa-apple-whole"></i> Nutrition
+        </button>
+        <button class="filter-btn" data-filter="entrainement">
+          <i class="fas fa-dumbbell"></i> Entraînement
+        </button>
+        <button class="filter-btn" data-filter="competition">
+          <i class="fas fa-trophy"></i> Compétition
+        </button>
+        <button class="filter-btn" data-filter="sante">
+          <i class="fas fa-heart-pulse"></i> Santé
+        </button>
+        <button class="filter-btn" data-filter="regles">
+          <i class="fas fa-whistle"></i> Règles
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GRILLE D'ARTICLES ===================== -->
+  <main class="blog-main">
+    <div class="container">
+
+      <!-- Compteur de résultats -->
+      <div class="articles-count">
+        <span id="articlesCount">5</span> articles disponibles
+      </div>
+
+      <div class="articles-grid" id="articlesGrid">
+
+<!-- ── CARD - Nutrition avant compétition ── -->
+<article class="article-card" data-category="nutrition">
+  <a href="articles/nutrition-avant-competition.html" class="card-link">
+    <div class="card-image-wrapper">
+      <img
+        src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80"
+        alt="Nutrition sportive"
+        class="card-image"
+        loading="lazy"
+      />
+      <div class="card-image-overlay">
+        <span><i class="fas fa-book-open"></i> Lire l'article</span>
+      </div>
+      <span class="card-badge badge--nutrition">
+        <i class="fas fa-apple-alt"></i> Nutrition
+      </span>
+    </div>
+    <div class="card-body">
+      <div class="card-meta">
+        <span class="card-date"><i class="fas fa-calendar"></i> 02 Mars 2026</span>
+        <span class="card-read-time"><i class="fas fa-clock"></i> 6 min</span>
+      </div>
+      <h2 class="card-title">Que manger avant une compétition ?</h2>
+      <p class="card-excerpt">
+        Glucides, protéines, hydratation... Découvrez le plan nutritionnel idéal pour performer le jour J.
+      </p>
+    </div>
+    <div class="card-footer">
+      <div class="card-author">
+        <img src="https://i.pravatar.cc/30?img=12" alt="Auteur" class="author-avatar"/>
+        Professeur d'EPS
+      </div>
+      <span class="card-cta">Lire <i class="fas fa-arrow-right"></i></span>
+    </div>
+  </a>
+</article>
+
+<!-- ── CARD - Échauffement essentiel ── -->
+<article class="article-card" data-category="entrainement">
+  <a href="articles/echauffement-essentiel.html" class="card-link">
+    <div class="card-image-wrapper">
+      <img
+        src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80"
+        alt="Échauffement sportif"
+        class="card-image"
+        loading="lazy"
+      />
+      <div class="card-image-overlay">
+        <span><i class="fas fa-book-open"></i> Lire l'article</span>
+      </div>
+      <span class="card-badge badge--entrainement">
+        <i class="fas fa-dumbbell"></i> Entraînement
+      </span>
+    </div>
+    <div class="card-body">
+      <div class="card-meta">
+        <span class="card-date"><i class="fas fa-calendar"></i> 18 Jan 2026</span>
+        <span class="card-read-time"><i class="fas fa-clock"></i> 5 min</span>
+      </div>
+      <h2 class="card-title">L'échauffement : la clé pour éviter les blessures</h2>
+      <p class="card-excerpt">
+        Souvent négligé, l'échauffement est pourtant indispensable. Voici pourquoi et comment bien le réaliser.
+      </p>
+    </div>
+    <div class="card-footer">
+      <div class="card-author">
+        <img src="https://i.pravatar.cc/30?img=8" alt="Auteur" class="author-avatar"/>
+        Professeur d'EPS
+      </div>
+      <span class="card-cta">Lire <i class="fas fa-arrow-right"></i></span>
+    </div>
+  </a>
+</article>
+
+
+<!-- ── CARD - EPS au lycée ── -->
+<article class="article-card" data-category="sante">
+  <a href="articles/eps-importance-lycee.html" class="card-link">
+    <div class="card-image-wrapper">
+      <img
+        src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80"
+        alt="EPS école sport"
+        class="card-image"
+        loading="lazy"
+      />
+      <div class="card-image-overlay">
+        <span><i class="fas fa-book-open"></i> Lire l'article</span>
+      </div>
+      <span class="card-badge badge--sante">
+        <i class="fas fa-heart"></i> Santé
+      </span>
+    </div>
+    <div class="card-body">
+      <div class="card-meta">
+        <span class="card-date"><i class="fas fa-calendar"></i> 25 Jan 2026</span>
+        <span class="card-read-time"><i class="fas fa-clock"></i> 7 min</span>
+      </div>
+      <h2 class="card-title">L'EPS à l'école : bien plus qu'un simple cours de sport</h2>
+      <p class="card-excerpt">
+        Développement personnel, cohésion sociale, santé mentale... L'EPS forme des individus complets.
+      </p>
+    </div>
+    <div class="card-footer">
+      <div class="card-author">
+        <img src="https://i.pravatar.cc/30?img=21" alt="Auteur" class="author-avatar"/>
+        Professeur d'EPS
+      </div>
+      <span class="card-cta">Lire <i class="fas fa-arrow-right"></i></span>
+    </div>
+  </a>
+</article>
+
+
+<!-- ── CARD - Récupération musculaire ── -->
+<article class="article-card" data-category="sante">
+  <a href="articles/recuperation-musculaire.html" class="card-link">
+    <div class="card-image-wrapper">
+      <img
+        src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80"
+        alt="Récupération sportive"
+        class="card-image"
+        loading="lazy"
+      />
+      <div class="card-image-overlay">
+        <span><i class="fas fa-book-open"></i> Lire l'article</span>
+      </div>
+      <span class="card-badge badge--sante">
+        <i class="fas fa-heart"></i> Santé
+      </span>
+    </div>
+    <div class="card-body">
+      <div class="card-meta">
+        <span class="card-date"><i class="fas fa-calendar"></i> 2 Fév 2026</span>
+        <span class="card-read-time"><i class="fas fa-clock"></i> 6 min</span>
+      </div>
+      <h2 class="card-title">Récupération musculaire : les meilleures techniques</h2>
+      <p class="card-excerpt">
+        Sommeil, alimentation, bains froids... Optimisez votre récupération pour progresser plus vite.
+      </p>
+    </div>
+    <div class="card-footer">
+      <div class="card-author">
+        <img src="https://i.pravatar.cc/30?img=47" alt="Auteur" class="author-avatar"/>
+        Professeur d'EPS
+      </div>
+      <span class="card-cta">Lire <i class="fas fa-arrow-right"></i></span>
+    </div>
+  </a>
+</article>
+
+<!-- ── CARD - Kin-ball ── -->
+<article class="article-card" data-category="regles">
+  <a href="articles/kin-ball.html" class="card-link">
+    <div class="card-image-wrapper">
+      <img
+        src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=600&q=80"
+        alt="Kin-ball sport collectif"
+        class="card-image"
+        loading="lazy"
+      />
+      <div class="card-image-overlay">
+        <span><i class="fas fa-book-open"></i> Lire l'article</span>
+      </div>
+      <span class="card-badge badge--regles">
+        <i class="fas fa-whistle"></i> Règles
+      </span>
+    </div>
+    <div class="card-body">
+      <div class="card-meta">
+        <span class="card-date"><i class="fas fa-calendar"></i> 15 Jan 2026</span>
+        <span class="card-read-time"><i class="fas fa-clock"></i> 6 min</span>
+      </div>
+      <h2 class="card-title">Le Kin-ball : comprendre les règles du sport aux 3 équipes</h2>
+      <p class="card-excerpt">
+        Ballon géant, 3 équipes, le cri "Omnikin"... Découvrez les règles et l'esprit unique du Kin-ball.
+      </p>
+    </div>
+    <div class="card-footer">
+      <div class="card-author">
+        <img src="https://i.pravatar.cc/30?img=33" alt="DIJOUX Jordan" class="author-avatar"/>
+        Professeur d'EPS
+      </div>
+      <span class="card-cta">Lire <i class="fas fa-arrow-right"></i></span>
+    </div>
+  </a>
+</article>
+
+
+<!-- ── CARD - Mental du champion ── -->
+<article class="article-card" data-category="competition">
+  <a href="articles/mental-du-champion.html" class="card-link">
+    <div class="card-image-wrapper">
+      <img
+        src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=600&q=80"
+        alt="Mental sportif"
+        class="card-image"
+        loading="lazy"
+      />
+      <div class="card-image-overlay">
+        <span><i class="fas fa-book-open"></i> Lire l'article</span>
+      </div>
+      <span class="card-badge badge--competition">
+        <i class="fas fa-trophy"></i> Compétition
+      </span>
+    </div>
+    <div class="card-body">
+      <div class="card-meta">
+        <span class="card-date"><i class="fas fa-calendar"></i> 10 Fév 2026</span>
+        <span class="card-read-time"><i class="fas fa-clock"></i> 8 min</span>
+      </div>
+      <h2 class="card-title">Le mental du champion : développez votre force intérieure</h2>
+      <p class="card-excerpt">
+        Visualisation, gestion du stress, concentration... Les secrets psychologiques des grands champions.
+      </p>
+    </div>
+    <div class="card-footer">
+      <div class="card-author">
+        <img src="https://i.pravatar.cc/30?img=33" alt="Auteur" class="author-avatar"/>
+        Professeur d'EPS
+      </div>
+      <span class="card-cta">Lire <i class="fas fa-arrow-right"></i></span>
+    </div>
+  </a>
+</article>
+
+
+
+      </div><!-- /articles-grid -->
+
+      <!-- Message si aucun résultat -->
+      <div class="no-results" id="noResults" style="display:none;">
+        <i class="fas fa-search"></i>
+        <p>Aucun article dans cette catégorie pour le moment.</p>
+      </div>
+
+    </div><!-- /container -->
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 ASLFP — Tous droits réservés.</p>
+      <p><a href="mentions-legales.html">Mentions légales</a></p>
+    </div>
+  </footer>
+
+  <!-- Bouton retour en haut -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Retour en haut">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- JS -->
+  <script src="JS/blog.js" defer></script>
+
+</body>
+</html>

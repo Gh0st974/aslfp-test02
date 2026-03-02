@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mentions légales — AS du LFP</title>
+    <link rel="icon" type="image/png" href="img/Logos/logo-aslfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+      /* ================================
+         MENTIONS LÉGALES — styles locaux
+      ================================ */
+      .mentions-hero {
+        padding: 160px 0 80px;
+        text-align: center;
+      }
+
+      .mentions-hero h1 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 16px;
+      }
+
+      .mentions-hero p {
+        color: var(--texte-secondaire);
+        font-size: 0.95rem;
+      }
+
+      .mentions-content {
+        padding: 0 0 100px;
+      }
+
+      .mentions-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .mention-card {
+        background: var(--fond-carte);
+        border-radius: var(--radius);
+        padding: 36px 40px;
+        border: 1px solid rgba(165, 180, 252, 0.1);
+        transition: border-color var(--transition);
+      }
+
+      .mention-card:hover {
+        border-color: rgba(165, 180, 252, 0.25);
+      }
+
+      .mention-card h2 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--accent);
+        margin-bottom: 20px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid rgba(165, 180, 252, 0.15);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .mention-card p {
+        color: var(--texte-secondaire);
+        font-size: 0.92rem;
+        line-height: 1.8;
+        margin-bottom: 12px;
+      }
+
+      .mention-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      .mention-card strong {
+        color: var(--texte);
+        font-weight: 600;
+      }
+
+      .mention-card a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+        transition: opacity var(--transition);
+      }
+
+      .mention-card a:hover {
+        opacity: 0.75;
+      }
+
+      .mention-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 8px;
+        font-size: 0.9rem;
+      }
+
+      .mention-table tr {
+        border-bottom: 1px solid rgba(165, 180, 252, 0.1);
+      }
+
+      .mention-table tr:last-child {
+        border-bottom: none;
+      }
+
+      .mention-table td {
+        padding: 10px 8px;
+        color: var(--texte-secondaire);
+        vertical-align: top;
+      }
+
+      .mention-table td:first-child {
+        font-weight: 600;
+        color: var(--texte);
+        width: 40%;
+        white-space: nowrap;
+      }
+
+      .back-btn {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .mention-card {
+          padding: 24px 20px;
+        }
+
+        .mention-table td:first-child {
+          white-space: normal;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+<!-- HEADER -->
+<header class="header header-scrolled">
+  <div class="container">
+    <div class="header-content">
+
+      <div class="logo-section">
+        <a href="index.html" class="logo-link"> <!-- ✅ plus de ../ -->
+          <img src="img/Logos/logo-aslfp.png" alt="Logo AS LFP" class="logo">
+        </a>
+        <span class="as-title">AS du LFP</span>
+      </div>
+
+      <nav class="main-nav desktop-nav">
+        <ul>
+          <li><a href="index.html#hero">Accueil</a></li>
+          <li><a href="index.html#activites">Activités</a></li>
+          <li><a href="index.html#calendrier">Calendrier</a></li>
+          <li><a href="index.html#inscription">Inscription</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="articles.html">Articles</a></li>
+        </ul>
+      </nav>
+
+      <button class="burger" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav mobile-nav">
+        <ul>
+          <li><a href="index.html#hero">Accueil</a></li>
+          <li><a href="index.html#activites">Activités</a></li>
+          <li><a href="index.html#calendrier">Calendrier</a></li>
+          <li><a href="index.html#inscription">Inscription</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="articles.html">Articles</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </div>
+</header>
+
+
+    <!-- HERO MENTIONS -->
+    <section class="mentions-hero">
+      <div class="container">
+        <h1>
+          <span class="as-highlight">Mentions</span>
+          <span class="highlight"> légales</span>
+        </h1>
+        <p>Dernière mise à jour : juin 2025</p>
+      </div>
+    </section>
+
+    <!-- CONTENU MENTIONS -->
+    <section class="mentions-content">
+      <div class="container">
+
+        <div class="back-btn">
+          <a href="index.html" class="btn btn-secondary">← Retour à l'accueil</a>
+        </div>
+
+        <div class="mentions-grid">
+
+          <!-- 1. Éditeur -->
+          <div class="mention-card">
+            <h2>🏢 Éditeur du site</h2>
+            <table class="mention-table">
+              <tr>
+                <td>Nom</td>
+                <td><strong>Association Sportive du Lycée Français de Prague</strong></td>
+              </tr>
+              <tr>
+                <td>Forme juridique</td>
+                <td>Association loi 1901</td>
+              </tr>
+              <tr>
+                <td>Siège social</td>
+                <td>Drtinova 7, 150 00 Prague, République Tchèque</td>
+              </tr>
+              <tr>
+                <td>Numéro RNA</td>
+                <td>[À compléter — ex : W123456789]</td>
+              </tr>
+              <tr>
+                <td>Email de contact</td>
+                <td><a href="mailto:[email@exemple.com]">[email@exemple.com]</a></td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- 2. Responsable publication -->
+          <div class="mention-card">
+            <h2>👤 Responsable de la publication</h2>
+            <p>
+              Le responsable de la publication est le président(e) de l'Association Sportive du LFP.
+            </p>
+            <table class="mention-table">
+              <tr>
+                <td>Nom</td>
+                <td>[Prénom Nom du président(e)]</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td><a href="mailto:[email@exemple.com]">[email@exemple.com]</a></td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- 3. Hébergeur -->
+          <div class="mention-card">
+            <h2>🖥️ Hébergeur</h2>
+            <p>Ce site est hébergé par :</p>
+            <table class="mention-table">
+              <tr>
+                <td>Société</td>
+                <td><strong>GitHub, Inc.</strong></td>
+              </tr>
+              <tr>
+                <td>Adresse</td>
+                <td>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</td>
+              </tr>
+              <tr>
+                <td>Site web</td>
+                <td><a href="https://github.com" target="_blank" rel="noopener">github.com</a></td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- 4. Propriété intellectuelle -->
+          <div class="mention-card">
+            <h2>📸 Propriété intellectuelle</h2>
+            <p>
+              L'ensemble des contenus présents sur ce site — textes, photographies, logos, icônes —
+              sont la propriété de l'<strong>Association Sportive du LFP</strong> ou sont utilisés
+              avec l'autorisation expresse de leurs auteurs.
+            </p>
+            <p>
+              Toute reproduction, représentation, modification ou exploitation, même partielle,
+              de ces contenus est strictement interdite sans accord préalable écrit de l'association.
+            </p>
+          </div>
+
+          <!-- 5. Droit à l'image -->
+          <div class="mention-card">
+            <h2>🖼️ Droit à l'image</h2>
+            <p>
+              Les photographies publiées sur ce site peuvent représenter des membres de l'association
+              (élèves, professeurs, encadrants) ayant donné leur accord explicite à la diffusion
+              de leur image dans le cadre des activités de l'AS du LFP.
+            </p>
+            <p>
+              Conformément à la loi, toute personne dispose d'un droit sur son image.
+              Pour toute demande de retrait d'une photo vous concernant, contactez-nous à :
+              <a href="mailto:[email@exemple.com]">[email@exemple.com]</a>
+            </p>
+          </div>
+
+          <!-- 6. RGPD -->
+          <div class="mention-card">
+            <h2>🔒 Données personnelles (RGPD)</h2>
+            <p>
+              Ce site ne collecte <strong>aucune donnée personnelle directement</strong>
+              via ses propres serveurs.
+            </p>
+            <p>
+              Les formulaires d'inscription présents sur ce site sont gérés par
+              <strong>Google Forms</strong> (Google LLC). Les données saisies
+              (nom, prénom, classe, email, activités choisies) sont transmises directement
+              à Google et stockées dans Google Sheets, accessible uniquement
+              aux membres responsables de l'association.
+            </p>
+            <p>
+              Ces données sont utilisées <strong>exclusivement</strong> dans le cadre
+              de la gestion des inscriptions aux activités sportives de l'AS du LFP.
+              Elles ne sont ni revendues, ni transmises à des tiers.
+            </p>
+            <p>
+              Conformément au <strong>Règlement Général sur la Protection des Données (RGPD)</strong>,
+              vous disposez d'un droit d'accès, de rectification, d'effacement et d'opposition
+              concernant vos données personnelles. Pour exercer ces droits, contactez-nous à :
+              <a href="mailto:[email@exemple.com]">[email@exemple.com]</a>
+            </p>
+          </div>
+
+          <!-- 7. Cookies -->
+          <div class="mention-card">
+            <h2>🍪 Cookies</h2>
+            <p>
+              Ce site <strong>n'utilise pas de cookies</strong> de traçage, de publicité
+              ou d'analyse comportementale.
+            </p>
+            <p>
+              Des cookies techniques peuvent être déposés par les services tiers intégrés
+              au site (Google Maps, Google Forms, Swiper). Ces cookies sont soumis aux
+              politiques de confidentialité de leurs éditeurs respectifs.
+            </p>
+          </div>
+
+          <!-- 8. Liens externes -->
+          <div class="mention-card">
+            <h2>🔗 Liens externes</h2>
+            <p>
+              Ce site peut contenir des liens vers des sites tiers (Google Forms, réseaux sociaux, etc.).
+              L'AS du LFP ne saurait être tenue responsable du contenu de ces sites
+              ni de leur politique de confidentialité.
+            </p>
+          </div>
+
+        </div><!-- fin mentions-grid -->
+
+        <div class="back-btn" style="margin-top: 60px; margin-bottom: 0;">
+          <a href="index.html" class="btn">← Retour à l'accueil</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="logo-section">
+            <img src="img/Logos/logo-aslfp.png" alt="Logo AS LFP" class="logo">
+            <span class="as-title">AS du LFP</span>
+          </div>
+
+          <nav class="footer-nav">
+            <a href="index.html#hero">Accueil</a>
+            <a href="index.html#activites">Activités</a>
+            <a href="index.html#calendrier">Calendrier</a>
+            <a href="index.html#inscription">Inscription</a>
+            <a href="galerie.html">Galerie</a>
+            <a href="index.html#contact">Contact</a>
+          </nav>
+
+          <div class="social-links">
+            <a target="_blank" href="#" title="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a target="_blank" href="https://cz.linkedin.com/school/lyc%C3%A9e-fran%C3%A7ais-de-prague/" title="Linkedin">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a target="_blank" href="https://www.facebook.com/lyceefrancaisprague/#" title="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2025 Association Sportive du LFP — Tous droits réservés</p>
+          <p style="margin-top:4px;">Fait avec ❤️</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="JS/script.js"></script>
+
+  </body>
+</html>
+
+
+
