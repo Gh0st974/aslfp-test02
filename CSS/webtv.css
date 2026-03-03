@@ -359,3 +359,37 @@
     height: 300px;
   }
 }
+
+/* ================================
+   BOUTON LIVE — NAVBAR
+================================ */
+#live-nav-item,
+#live-nav-item-mobile {
+  display: none; /* caché par défaut, affiché par JS si live actif */
+}
+
+#live-nav-item a,
+#live-nav-item-mobile a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #e74c3c;
+  color: #fff !important;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  animation: pulse-live-btn 1.5s ease-in-out infinite;
+  text-decoration: none;
+}
+
+#live-nav-item a:hover,
+#live-nav-item-mobile a:hover {
+  background: #c0392b;
+}
+
+@keyframes pulse-live-btn {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.5); }
+  50%       { box-shadow: 0 0 0 8px rgba(231, 76, 60, 0); }
+}

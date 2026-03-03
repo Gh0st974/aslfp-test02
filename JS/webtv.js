@@ -133,7 +133,8 @@ async function initWebtv() {
 // ================================
 async function initLiveBanner() {
   const banner = document.getElementById('live-banner');
-  if (!banner) return; // On n'est pas sur index.html
+  const liveNavItem = document.getElementById('live-nav-item');
+  const liveNavItemMobile = document.getElementById('live-nav-item-mobile');
 
   try {
     const res    = await fetch(WEBTV_SHEET_URL + '&t=' + Date.now());
@@ -141,12 +142,19 @@ async function initLiveBanner() {
     const config = parseWebtvCSV(csv);
 
     if (config['live_actif']?.toUpperCase() === 'TRUE') {
-      const titre = config['titre_event'] || '🔴 Live en cours';
-      banner.querySelector('.live-banner-text').textContent = `🔴 LIVE — ${titre}`;
-      banner.style.display = 'flex';
+      // Bannière
+      if (banner) {
+        const titre = config['titre_event'] || '🔴 Live en cours';
+        banner.querySelector('.live-banner-text').textContent = `🔴 LIVE — ${titre}`;
+        banner.style.display = 'flex';
+      }
+      // Bouton nav desktop
+      if (liveNavItem) liveNavItem.style.display = 'block';
+      // Bouton nav mobile
+      if (liveNavItemMobile) liveNavItemMobile.style.display = 'block';
     }
   } catch (e) {
-    // Pas de bannière si erreur réseau, ça reste caché
+    // Pas de live visible si erreur réseau
   }
 }
 
