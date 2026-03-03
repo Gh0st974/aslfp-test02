@@ -1,37 +1,22 @@
 'use strict';
 
 // ================================
-//   CONFIG — URL Google Sheet WEBTV
+//   CONFIG — URL Apps Script WEBTV
 // ================================
-const WEBTV_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTo3ZcOfNDj6pkOXbSD-vqxqI3chVLiM7SNa61Qvq_zl849Gy1VZEUcRqHJ07D1sCSHQ08hTOEFQI44/pub?output=csv';
+const WEBTV_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzCDFxBjAtSdyDlWHGpJ-5JyPjoBkl89gNx8Og3cBZvjx25QgZJTX3SUn6K6aPq8l2Q/exec';
 
 // ================================
 //   FETCH CONFIG WEBTV
 // ================================
 async function fetchWebtvConfig() {
   try {
-    const res = await fetch(WEBTV_SHEET_URL + '&t=' + Date.now());
-    const csv = await res.text();
-    return parseWebtvCSV(csv);
+    const res = await fetch(WEBTV_SHEET_URL);
+    const config = await res.json();
+    return config;
   } catch (err) {
     console.error('Erreur fetch WEBTV config :', err);
     return null;
   }
-}
-
-function parseWebtvCSV(csv) {
-  const lines = csv.trim().split('\n');
-  const config = {};
-
-  lines.forEach(line => {
-    const commaIdx = line.indexOf(',');
-    if (commaIdx === -1) return;
-    const key   = line.substring(0, commaIdx).trim().replace(/"/g, '');
-    const value = line.substring(commaIdx + 1).trim().replace(/^"|"$/g, '');
-    config[key] = value;
-  });
-
-  return config;
 }
 
 // ================================
@@ -86,7 +71,6 @@ function showState(state) {
 let currentWebtvState = null;
 
 async function initWebtv() {
-  // Afficher loading seulement au premier chargement
   if (currentWebtvState === null) {
     showState('loading');
   }
@@ -99,41 +83,31 @@ async function initWebtv() {
     return;
   }
 
-  const isLive = config['live_actif']?.toUpperCase() === 'TRUE';
+  const isLive = String(config['live_actif']).toUpperCase() === 'TRUE';
   const newState = (isLive && config['video_id']) ? 'live' : 'offline';
 
-  // Si l'état n'a pas changé, on ne refait pas tout le DOM
   if (newState === currentWebtvState) return;
 
   currentWebtvState = newState;
 
   if (newState === 'live') {
-    // Remplir titre / sous-titre
     document.getElementById('webtv-live-title').textContent =
       config['titre_event'] || 'Événement AS LFP';
     document.getElementById('webtv-live-subtitle').textContent =
       config['sous_titre'] || '';
 
-    // Injecter le player YouTube
-    const videoId = config['video_id'].trim();
+    const videoId = String(config['video_id']).trim();
     document.getElementById('youtube-player').src =
       `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-
-    // Injecter le chat YouTube
     document.getElementById('youtube-chat').src =
       `https://www.youtube.com/live_chat?v=${videoId}&embed_domain=${location.hostname}`;
 
-    // Prochains événements sous le player
     buildNextEvents(config, 'next-events-list-live');
-
     showState('live');
 
   } else {
-    // Vider le player pour stopper la vidéo
     document.getElementById('youtube-player').src = '';
     document.getElementById('youtube-chat').src = '';
-
-    // Prochains événements page offline
     buildNextEvents(config, 'next-events-list');
     showState('offline');
   }
@@ -148,11 +122,10 @@ async function initLiveBanner() {
   const liveNavItemMobile = document.getElementById('live-nav-item-mobile');
 
   try {
-    const res    = await fetch(WEBTV_SHEET_URL + '&t=' + Date.now());
-    const csv    = await res.text();
-    const config = parseWebtvCSV(csv);
+    const res    = await fetch(WEBTV_SHEET_URL);
+    const config = await res.json();
 
-    if (config['live_actif']?.toUpperCase() === 'TRUE') {
+    if (String(config['live_actif']).toUpperCase() === 'TRUE') {
       if (banner) {
         const titre = config['titre_event'] || '🔴 Live en cours';
         banner.querySelector('.live-banner-text').textContent = `🔴 LIVE — ${titre}`;
@@ -170,14 +143,10 @@ async function initLiveBanner() {
 //   DÉMARRAGE
 // ================================
 document.addEventListener('DOMContentLoaded', () => {
-  // Page webtv.html
   if (document.getElementById('webtv-loading')) {
     initWebtv();
-
-    // 🔄 Polling toutes les 15 secondes
     setInterval(initWebtv, 15000);
   }
 
-  // Bannière index.html
   initLiveBanner();
 });
