@@ -2,17 +2,15 @@
 
 // ================================
 //   CONFIG — URL Google Sheet WEBTV
-//   Remplace le GID par celui de ton onglet WEBTV
 // ================================
 const WEBTV_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTo3ZcOfNDj6pkOXbSD-vqxqI3chVLiM7SNa61Qvq_zl849Gy1VZEUcRqHJ07D1sCSHQ08hTOEFQI44/pub?output=csv';
-// ⚠️ Remplace XXXXXX par le GID de ton onglet WEBTV (visible dans l'URL quand tu es sur cet onglet)
 
 // ================================
 //   FETCH CONFIG WEBTV
 // ================================
 async function fetchWebtvConfig() {
   try {
-    const res = await fetch(WEBTV_SHEET_URL + '&t=' + Date.now()); // cache busting
+    const res = await fetch(WEBTV_SHEET_URL + '&t=' + Date.now());
     const csv = await res.text();
     return parseWebtvCSV(csv);
   } catch (err) {
@@ -26,7 +24,6 @@ function parseWebtvCSV(csv) {
   const config = {};
 
   lines.forEach(line => {
-    // Format : clé,valeur
     const commaIdx = line.indexOf(',');
     if (commaIdx === -1) return;
     const key   = line.substring(0, commaIdx).trim().replace(/"/g, '');
@@ -86,19 +83,31 @@ function showState(state) {
 // ================================
 //   INIT WEBTV
 // ================================
+let currentWebtvState = null;
+
 async function initWebtv() {
-  showState('loading');
+  // Afficher loading seulement au premier chargement
+  if (currentWebtvState === null) {
+    showState('loading');
+  }
 
   const config = await fetchWebtvConfig();
 
   if (!config) {
+    currentWebtvState = 'offline';
     showState('offline');
     return;
   }
 
   const isLive = config['live_actif']?.toUpperCase() === 'TRUE';
+  const newState = (isLive && config['video_id']) ? 'live' : 'offline';
 
-  if (isLive && config['video_id']) {
+  // Si l'état n'a pas changé, on ne refait pas tout le DOM
+  if (newState === currentWebtvState) return;
+
+  currentWebtvState = newState;
+
+  if (newState === 'live') {
     // Remplir titre / sous-titre
     document.getElementById('webtv-live-title').textContent =
       config['titre_event'] || 'Événement AS LFP';
@@ -120,6 +129,10 @@ async function initWebtv() {
     showState('live');
 
   } else {
+    // Vider le player pour stopper la vidéo
+    document.getElementById('youtube-player').src = '';
+    document.getElementById('youtube-chat').src = '';
+
     // Prochains événements page offline
     buildNextEvents(config, 'next-events-list');
     showState('offline');
@@ -128,8 +141,6 @@ async function initWebtv() {
 
 // ================================
 //   BANNIÈRE sur index.html
-//   (ce code ne s'exécute que si
-//    l'élément #live-banner existe)
 // ================================
 async function initLiveBanner() {
   const banner = document.getElementById('live-banner');
@@ -142,15 +153,12 @@ async function initLiveBanner() {
     const config = parseWebtvCSV(csv);
 
     if (config['live_actif']?.toUpperCase() === 'TRUE') {
-      // Bannière
       if (banner) {
         const titre = config['titre_event'] || '🔴 Live en cours';
         banner.querySelector('.live-banner-text').textContent = `🔴 LIVE — ${titre}`;
         banner.style.display = 'flex';
       }
-      // Bouton nav desktop
       if (liveNavItem) liveNavItem.style.display = 'block';
-      // Bouton nav mobile
       if (liveNavItemMobile) liveNavItemMobile.style.display = 'block';
     }
   } catch (e) {
@@ -165,6 +173,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Page webtv.html
   if (document.getElementById('webtv-loading')) {
     initWebtv();
+
+    // 🔄 Polling toutes les 15 secondes
+    setInterval(initWebtv, 15000);
   }
 
   // Bannière index.html
