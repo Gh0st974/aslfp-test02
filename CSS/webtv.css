@@ -1,0 +1,361 @@
+/* ================================
+   BANNIÈRE LIVE (index.html)
+================================ */
+.live-banner {
+  position: fixed;
+  top: 77px; /* juste sous le header */
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: linear-gradient(90deg, #c0392b, #e74c3c, #c0392b);
+  background-size: 200% 100%;
+  animation: banner-slide 3s ease infinite;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 20px rgba(231, 76, 60, 0.5);
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.live-banner:hover {
+  filter: brightness(1.1);
+}
+
+@keyframes banner-slide {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.live-banner-dot {
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  animation: pulse-dot 1.2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+.live-banner-text {
+  letter-spacing: 0.5px;
+}
+
+.live-banner-arrow {
+  background: rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+}
+
+.live-banner:hover .live-banner-arrow {
+  background: rgba(255,255,255,0.35);
+}
+
+/* ================================
+   PAGE WEBTV — BASE
+================================ */
+.webtv-main {
+  min-height: 100vh;
+  padding-top: 80px; /* hauteur header */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================================
+   ÉTAT CHARGEMENT
+================================ */
+.webtv-loading {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: var(--texte-secondaire);
+  font-weight: 600;
+}
+
+.loader-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(165, 180, 252, 0.2);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ================================
+   ÉTAT OFFLINE
+================================ */
+.webtv-offline {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.offline-content {
+  text-align: center;
+  max-width: 600px;
+}
+
+.offline-icon {
+  font-size: 5rem;
+  margin-bottom: 24px;
+  filter: grayscale(0.3);
+}
+
+.offline-content h1 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: var(--texte);
+  margin-bottom: 16px;
+}
+
+.offline-content p {
+  color: var(--texte-secondaire);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.webtv-back-btn {
+  margin-top: 32px;
+  display: inline-flex;
+}
+
+/* ================================
+   PROCHAINS EVENTS (offline & live)
+================================ */
+.webtv-next-events {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(165, 180, 252, 0.15);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.webtv-next-events h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--texte);
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(165, 180, 252, 0.15);
+}
+
+.next-event-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  background: rgba(165, 180, 252, 0.06);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+  transition: background var(--transition);
+}
+
+.next-event-card:hover {
+  background: rgba(165, 180, 252, 0.12);
+}
+
+.next-event-date {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--texte-secondaire);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.next-event-titre {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--texte);
+}
+
+.no-events {
+  color: var(--texte-secondaire);
+  font-size: 0.9rem;
+}
+
+/* Version horizontale (sous le player) */
+.next-events-list--horizontal {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.next-events-list--horizontal .next-event-card {
+  margin-bottom: 0;
+}
+
+/* ================================
+   ÉTAT LIVE
+================================ */
+.webtv-live {
+  padding: 20px 16px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Header du live */
+.webtv-live-header {
+  text-align: center;
+  padding: 24px 0 32px;
+}
+
+.live-badge-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(231, 76, 60, 0.15);
+  border: 1px solid rgba(231, 76, 60, 0.4);
+  color: #e74c3c;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 6px 18px;
+  border-radius: 50px;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: #e74c3c;
+  border-radius: 50%;
+  animation: pulse-dot 1.2s ease-in-out infinite;
+}
+
+.webtv-live-title {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.webtv-live-subtitle {
+  color: var(--texte-secondaire);
+  font-size: 0.95rem;
+}
+
+/* Player + Chat */
+.webtv-player-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+/* Ratio 16/9 pour le player */
+.player-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  box-shadow: var(--ombre);
+}
+
+.player-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
+/* Chat */
+.webtv-chat {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(165, 180, 252, 0.15);
+  background: rgba(255,255,255,0.03);
+  box-shadow: var(--ombre);
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(165, 180, 252, 0.08);
+  border-bottom: 1px solid rgba(165, 180, 252, 0.15);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--texte);
+}
+
+.webtv-chat iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+}
+
+/* Section live — prochains events */
+.webtv-next-events--live {
+  margin-top: 8px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 900px) {
+  .webtv-player-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .webtv-chat iframe {
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .live-banner {
+    font-size: 0.82rem;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+
+  .live-banner-arrow {
+    display: none; /* trop petit sur mobile */
+  }
+
+  .webtv-live {
+    padding: 12px 10px 40px;
+  }
+
+  .webtv-chat iframe {
+    height: 300px;
+  }
+}

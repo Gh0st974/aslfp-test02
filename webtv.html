@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web TV — AS LFP</title>
+  <link rel="icon" type="image/png" href="img/Logos/logo-aslfp.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/styles.css">
+  <link rel="stylesheet" href="CSS/webtv.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- HEADER (identique) -->
+<header class="header" id="header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo-section">
+        <a href="index.html" class="logo-link">
+          <img src="img/Logos/logo-aslfp.png" alt="Logo AS LFP" class="logo">
+        </a>
+        <span class="as-title">ASSOCIATION SPORTIVE DU LFP</span>
+      </div>
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="index.html#hero">Accueil</a></li>
+          <li><a href="index.html#activites">Activités</a></li>
+          <li><a href="index.html#calendrier">Calendrier</a></li>
+          <li><a href="index.html#inscription">Inscription</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="articles.html">Articles</a></li>
+        </ul>
+      </nav>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav">
+    <ul>
+      <li><a href="index.html#hero">Accueil</a></li>
+      <li><a href="index.html#activites">Activités</a></li>
+      <li><a href="index.html#calendrier">Calendrier</a></li>
+      <li><a href="index.html#inscription">Inscription</a></li>
+      <li><a href="galerie.html">Galerie</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="articles.html">Articles</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ======= CONTENU WEBTV ======= -->
+<main class="webtv-main">
+
+  <!-- ÉTAT : CHARGEMENT -->
+  <div class="webtv-loading" id="webtv-loading">
+    <div class="loader-spinner"></div>
+    <p>Chargement en cours...</p>
+  </div>
+
+  <!-- ÉTAT : PAS DE LIVE -->
+  <div class="webtv-offline" id="webtv-offline" style="display:none;">
+    <div class="offline-content">
+      <div class="offline-icon">📺</div>
+      <h1>Pas de live en ce moment</h1>
+      <p>La Web TV de l'AS LFP est hors ligne.<br>
+         Retrouvez-nous lors de nos prochains événements !</p>
+
+      <!-- Prochains événements -->
+      <div class="webtv-next-events" id="webtv-next-events">
+        <h3>📅 Prochains événements</h3>
+        <div class="next-events-list" id="next-events-list">
+          <!-- Rempli par JS -->
+        </div>
+      </div>
+
+      <a href="index.html" class="btn webtv-back-btn">
+        ← Retour au site
+      </a>
+    </div>
+  </div>
+
+  <!-- ÉTAT : LIVE ACTIF -->
+  <div class="webtv-live" id="webtv-live" style="display:none;">
+
+    <!-- Badge live + titre -->
+    <div class="webtv-live-header">
+      <div class="live-badge-wrapper">
+        <span class="live-badge">
+          <span class="live-dot"></span>
+          EN DIRECT
+        </span>
+      </div>
+      <h1 class="webtv-live-title" id="webtv-live-title">Événement AS LFP</h1>
+      <p class="webtv-live-subtitle" id="webtv-live-subtitle"></p>
+    </div>
+
+    <!-- Player + Chat -->
+    <div class="webtv-player-wrapper">
+
+      <!-- Lecteur vidéo -->
+      <div class="webtv-player">
+        <div class="player-container">
+          <iframe
+            id="youtube-player"
+            src=""
+            title="Live AS LFP"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Chat YouTube -->
+      <div class="webtv-chat">
+        <div class="chat-header">
+          <span class="chat-icon">💬</span>
+          <span>Chat en direct</span>
+        </div>
+        <iframe
+          id="youtube-chat"
+          src=""
+          title="Chat Live AS LFP"
+          frameborder="0">
+        </iframe>
+      </div>
+
+    </div>
+
+    <!-- Prochains événements (sous le player) -->
+    <div class="webtv-next-events webtv-next-events--live" id="webtv-next-events-live">
+      <h3>📅 Prochains événements</h3>
+      <div class="next-events-list next-events-list--horizontal" id="next-events-list-live">
+        <!-- Rempli par JS -->
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- FOOTER simplifié -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo-section">
+        <img src="img/Logos/logo-aslfp.png" alt="Logo" class="footer-logo">
+        <span class="footer-title">AS LFP</span>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Association Sportive du LFP — Tous droits réservés</p>
+        <p>Fait avec ❤️</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="JS/script.js"></script>
+<script src="JS/webtv.js"></script>
+</body>
+</html>
