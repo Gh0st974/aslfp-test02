@@ -10,7 +10,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="CSS/styles.css">
   <link rel="stylesheet" href="CSS/galerie.css">
+
+      <!-- PWA : Manifest -->
+    <link rel="manifest" href="/aslfp-test02/manifest.json">
+
+    <!-- iOS (Safari ne lit pas le manifest) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="AS LFP">
+    <link rel="apple-touch-icon" href="/aslfp-test02/img/icons/icon-192x192.png">
+
+    <!-- Couleur de la barre de navigation Android -->
+    <meta name="theme-color" content="#1a56db">
 </head>
+
+<!-- Enregistrement du Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('/aslfp-test02/service-worker.js')
+        .then((reg) => console.log('✅ Service Worker enregistré', reg))
+        .catch((err) => console.error('❌ Erreur SW :', err));
+    });
+  }
+</script>
+
 <body>
 
 <!-- HEADER -->
