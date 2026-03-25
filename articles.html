@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Articles | ASLFP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Articles — AS LFP</title>
+  <link rel="icon" type="image/png" href="img/Logos/logo-aslfp.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/styles.css">
+  <link rel="stylesheet" href="CSS/blog.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- CSS principal du site -->
-  <link rel="stylesheet" href="CSS/styles.css" />
-  <!-- CSS spécifique au blog -->
-  <link rel="stylesheet" href="CSS/blog.css" />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
-
-      <!-- PWA : Manifest -->
-    <link rel="manifest" href="/aslfp-test02/manifest.json">
-
-    <!-- iOS (Safari ne lit pas le manifest) -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="AS LFP">
-    <link rel="apple-touch-icon" href="/aslfp-test02/img/icons/icon-192x192.png">
-
-    <!-- Couleur de la barre de navigation Android -->
-    <meta name="theme-color" content="#1a56db">
+  <!-- PWA : Manifest -->
+  <link rel="manifest" href="/aslfp-test02/manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="AS LFP">
+  <link rel="apple-touch-icon" href="/aslfp-test02/img/icons/icon-192x192.png">
+  <meta name="theme-color" content="#1a56db">
 </head>
+
 
 <!-- Enregistrement du Service Worker -->
 <script>
@@ -39,13 +34,22 @@
   }
 </script>
 
+
 <body class="blog-page">
 
+<!-- BANNIÈRE LIVE — cachée par défaut, activée par JS -->
+<a href="webtv.html" id="live-banner" class="live-banner" style="display:none;" aria-label="Accéder au live">
+  <span class="live-banner-dot"></span>
+  <span class="live-banner-text">🔴 LIVE en cours</span>
+  <span class="live-banner-arrow">Regarder →</span>
+</a>
+
 <!-- HEADER -->
-<header class="header header-scrolled">
+<header class="header" id="header">
   <div class="container">
     <div class="header-content">
 
+      <!-- LOGO -->
       <div class="logo-section">
         <a href="index.html" class="logo-link">
           <img src="img/Logos/logo-aslfp.png" alt="Logo AS LFP" class="logo">
@@ -53,7 +57,8 @@
         <span class="as-title">ASSOCIATION SPORTIVE DU LFP</span>
       </div>
 
-      <nav class="main-nav desktop-nav">
+      <!-- NAV DESKTOP -->
+      <nav class="desktop-nav">
         <ul>
           <li><a href="index.html#hero">Accueil</a></li>
           <li><a href="index.html#activites">Activités</a></li>
@@ -61,29 +66,46 @@
           <li><a href="index.html#inscription">Inscription</a></li>
           <li><a href="galerie.html">Galerie</a></li>
           <li><a href="index.html#contact">Contact</a></li>
-          <li><a href="articles.html">Articles</a></li>
+          <li><a href="articles.html" class="active">Articles</a></li>
+          <!-- LIVE BOUTON — caché par défaut -->
+          <li id="live-nav-item" style="display:none;">
+            <a href="webtv.html" class="live-nav-btn">
+              <span class="live-dot-nav"></span> LIVE
+            </a>
+          </li>
         </ul>
       </nav>
 
-      <button class="burger" aria-label="Ouvrir le menu">
-        <span></span><span></span><span></span>
+      <!-- BURGER MOBILE -->
+      <button class="burger" id="burger" aria-label="Menu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
       </button>
-
-      <nav class="main-nav mobile-nav">
-        <ul>
-          <li><a href="index.html#hero">Accueil</a></li>
-          <li><a href="index.html#activites">Activités</a></li>
-          <li><a href="index.html#calendrier">Calendrier</a></li>
-          <li><a href="index.html#inscription">Inscription</a></li>
-          <li><a href="galerie.html">Galerie</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-          <li><a href="articles.html">Articles</a></li>
-        </ul>
-      </nav>
 
     </div>
   </div>
+
+  <!-- NAV MOBILE -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <ul>
+      <li><a href="index.html#hero">Accueil</a></li>
+      <li><a href="index.html#activites">Activités</a></li>
+      <li><a href="index.html#calendrier">Calendrier</a></li>
+      <li><a href="index.html#inscription">Inscription</a></li>
+      <li><a href="galerie.html">Galerie</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="articles.html" class="active">Articles</a></li>
+      <li id="live-nav-item-mobile" style="display:none;">
+        <a href="webtv.html" class="live-nav-btn">
+          <span class="live-dot-nav"></span> LIVE
+        </a>
+      </li>
+    </ul>
+  </nav>
+
 </header>
+
 
 
   <!-- ===================== HERO SECTION ===================== -->

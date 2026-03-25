@@ -12,18 +12,15 @@
   <link rel="stylesheet" href="CSS/webtv.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-      <!-- PWA : Manifest -->
-    <link rel="manifest" href="/aslfp-test02/manifest.json">
-
-    <!-- iOS (Safari ne lit pas le manifest) -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="AS LFP">
-    <link rel="apple-touch-icon" href="/aslfp-test02/img/icons/icon-192x192.png">
-
-    <!-- Couleur de la barre de navigation Android -->
-    <meta name="theme-color" content="#1a56db">
+  <!-- PWA : Manifest -->
+  <link rel="manifest" href="/aslfp-test02/manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="AS LFP">
+  <link rel="apple-touch-icon" href="/aslfp-test02/img/icons/icon-192x192.png">
+  <meta name="theme-color" content="#1a56db">
 </head>
+
 
 <!-- Enregistrement du Service Worker -->
 <script>
@@ -37,18 +34,30 @@
   }
 </script>
 
+
 <body>
 
-<!-- HEADER (identique) -->
+<!-- BANNIÈRE LIVE — cachée par défaut, activée par JS -->
+<a href="webtv.html" id="live-banner" class="live-banner" style="display:none;" aria-label="Accéder au live">
+  <span class="live-banner-dot"></span>
+  <span class="live-banner-text">🔴 LIVE en cours</span>
+  <span class="live-banner-arrow">Regarder →</span>
+</a>
+
+<!-- HEADER -->
 <header class="header" id="header">
   <div class="container">
     <div class="header-content">
+
+      <!-- LOGO -->
       <div class="logo-section">
         <a href="index.html" class="logo-link">
           <img src="img/Logos/logo-aslfp.png" alt="Logo AS LFP" class="logo">
         </a>
         <span class="as-title">ASSOCIATION SPORTIVE DU LFP</span>
       </div>
+
+      <!-- NAV DESKTOP -->
       <nav class="desktop-nav">
         <ul>
           <li><a href="index.html#hero">Accueil</a></li>
@@ -58,15 +67,26 @@
           <li><a href="galerie.html">Galerie</a></li>
           <li><a href="index.html#contact">Contact</a></li>
           <li><a href="articles.html">Articles</a></li>
+          <!-- LIVE BOUTON — caché par défaut -->
+          <li id="live-nav-item" style="display:none;">
+            <a href="webtv.html" class="live-nav-btn active">
+              <span class="live-dot-nav"></span> LIVE
+            </a>
+          </li>
         </ul>
       </nav>
+
+      <!-- BURGER MOBILE -->
       <button class="burger" id="burger" aria-label="Menu">
         <span class="burger-line"></span>
         <span class="burger-line"></span>
         <span class="burger-line"></span>
       </button>
+
     </div>
   </div>
+
+  <!-- NAV MOBILE -->
   <nav class="mobile-nav" id="mobile-nav">
     <ul>
       <li><a href="index.html#hero">Accueil</a></li>
@@ -76,9 +96,16 @@
       <li><a href="galerie.html">Galerie</a></li>
       <li><a href="index.html#contact">Contact</a></li>
       <li><a href="articles.html">Articles</a></li>
+      <li id="live-nav-item-mobile" style="display:none;">
+        <a href="webtv.html" class="live-nav-btn active">
+          <span class="live-dot-nav"></span> LIVE
+        </a>
+      </li>
     </ul>
   </nav>
+
 </header>
+
 
 <!-- ======= CONTENU WEBTV ======= -->
 <main class="webtv-main">
